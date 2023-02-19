@@ -1,0 +1,63 @@
+---
+import { slug } from 'github-slugger'
+
+const { className, url, name } = Astro.props
+
+const labelMarker = slug(name ?? '')
+const labelID = 'shareModal' + labelMarker
+const viewID = 'shareModalView' + labelMarker
+
+const css = `<style>
+#${viewID} {
+  display: none;
+}
+#${labelID}:checked + #${viewID} {
+  display: flex;
+}
+</style>`
+
+const socialURLMap = {
+  Facebook: 'https://www.facebook.com/sharer.php?u=' + url,
+  Twitter: 'https://twitter.com/intent/tweet?text=Check%20out%20this%20FYI!%20-%20' + url,
+  LinkedIn: 'https://www.linkedin.com/sharing/share-offsite/?url=' + url,
+  WhatsApp: 'https://wa.me/?text=Check%20out%20this%20FYI!%20-%20' + url,
+  Gmail: 'mailto:?subject= Check out this FYI! &body= Check out this FYI! - ' + url,
+}
+---
+
+<label for={labelID} class:list={['z-50 hover:bg-white/10 flex flex-row items-center border p-3 rounded-full border-black', className]}>
+  <svg id="share" width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <title>{name} Share</title>
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      fill="currentColor"
+      d="M10.6464 3.85353L11 4.20708L11.7071 3.49998L11.3536 3.14642L8.35355 0.146423H7.64645L4.64645 3.14642L4.29289 3.49998L5 4.20708L5.35355 3.85353L7.5 1.70708V9.49998V9.99998H8.5V9.49998V1.70708L10.6464 3.85353ZM1 5.5L1.5 5H4V6H2V15H14V6H12V5H14.5L15 5.5V15.5L14.5 16H1.5L1 15.5V5.5Z"
+    ></path>
+  </svg>
+</label>
+
+<input class="hidden" type="checkbox" id={labelID} />
+
+<div id={viewID} class="z-50 fixed top-0 left-0 w-screen h-screen flex-col items-center justify-center bg-black/25">
+  <div class="w-[300px] bg-white flex flex-col rounded-lg py-5">
+    <div class="w-full flex flex-row items-center justify-between px-5">
+      <span class="font-medium">Share This FYI</span>
+      <label for={labelID} class="cursor-pointer">&#10005;</label>
+    </div>
+    <div class="py-3"></div>
+    {
+      Object.entries(socialURLMap).map((i) => (
+        <a rel="nofollow" href={i[1]} target="_blank" class="flex w-full flex-row items-center justify-between rounded py-3 px-5 hover:bg-black/10">
+          <div class="flex w-full flex-row items-center gap-x-3">
+            {false && icon(i[0].toLowerCase()) && <img src={icon(i[0].toLowerCase())} height="16" class="object-cover" width="16" />}
+            <span>Share On {i[0]}</span>
+          </div>
+          <span>&xrarr;</span>
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<Fragment set:html={css} />

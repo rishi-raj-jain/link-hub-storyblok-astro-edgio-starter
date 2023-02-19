@@ -1,0 +1,8 @@
+node_modules
+dist
+.vscode
+.layer0
+.edgio
+.edgio_temp
+jsons/
+/deps.json

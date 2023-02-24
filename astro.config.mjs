@@ -1,9 +1,11 @@
+import * as dotenv from 'dotenv'
 import node from '@astrojs/node'
 import image from '@astrojs/image'
-import { GET_ENV } from './lib/env'
-import tailwind from '@astrojs/tailwind'
 import storyblok from '@storyblok/astro'
+import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
+
+dotenv.config()
 
 export default defineConfig({
   output: 'server',
@@ -16,7 +18,7 @@ export default defineConfig({
       serviceEntryPoint: '@astrojs/image/sharp',
     }),
     storyblok({
-      accessToken: GET_ENV('STORYBLOK'),
+      accessToken: process.env.STORYBLOK,
     }),
   ],
 })

@@ -1,6 +1,8 @@
 name: Deploy To Edgio (production)
 
-on: workflow_dispatch
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   deploy-to-edgio:

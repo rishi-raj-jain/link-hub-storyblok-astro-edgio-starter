@@ -7,8 +7,8 @@ import Social from '@/components/Shared/Social.astro'
 
 const { slug } = Astro.params
 
-let url = Astro.request.url.replace('http:', 'https:')
-const origin = Astro.url.origin.replace('http:', 'https:')
+const url = new URL(Astro.request.url)
+const origin = url.origin
 
 let userSlug = slug.toLowerCase(),
   title = '',
@@ -29,17 +29,11 @@ const {
   about = '',
   og = {},
   background = {},
-  ga = {},
-  icon: iconLink,
   code = 1,
 } = await getUserInfo(userSlug)
 
 if (code === 0) {
   return Astro.redirect('/404')
-}
-
-if (iconLink) {
-  icon = iconLink
 }
 
 if (userName) {

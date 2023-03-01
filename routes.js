@@ -2,21 +2,20 @@
 // You should commit this file to source control.
 
 import { Router } from '@edgio/core'
-import { cacheConfig } from './cache'
 import { astroRoutes } from '@edgio/astro'
 
 const router = new Router()
 
-// Astro's on the fly image path
-router.match('/_image', ({ cache, removeUpstreamResponseHeader }) => {
-  removeUpstreamResponseHeader('cache-control')
-  cache(cacheConfig(60 * 60 * 24 * 365))
-})
-
 // User path(s)
 router.match('/me/:path', ({ cache, removeUpstreamResponseHeader }) => {
   removeUpstreamResponseHeader('cache-control')
-  cache(cacheConfig(1, true))
+  cache({
+    edge: {
+      maxAgeSeconds: 1,
+      staleWhileRevalidateSeconds: 60 * 60 * 24 * 365,
+    },
+    browser: false,
+  })
 })
 
 router.use(astroRoutes)

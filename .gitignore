@@ -10,7 +10,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 .vscode
-.layer0
 .edgio
 .edgio_temp
 # environment variables

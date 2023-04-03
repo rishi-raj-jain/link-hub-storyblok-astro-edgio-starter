@@ -9,7 +9,7 @@
     "edgio:dev": "edgio dev",
     "edgio:build": "edgio build",
     "edgio:deploy": "edgio deploy",
-    "edgio:env:pull": "edgio env pull ./env",
+    "edgio:env:pull": "edgio env pull ./.env",
     "edgio:production": "edgio run --production",
     "format": "prettier --write '**/*' --ignore-unknown"
   },

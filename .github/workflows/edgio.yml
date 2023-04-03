@@ -15,7 +15,7 @@ jobs:
           node-version: 16
           cache: 'yarn'
       - run: yarn --prefer-offline
-      - run: yarn run edgio:env:pull
+      - run: yarn run edgio:env:pull --token=$EDGIO_DEPLOY_TOKEN
       - run: yarn run edgio:deploy --token=$EDGIO_DEPLOY_TOKEN
         env:
           EDGIO_DEPLOY_TOKEN: ${{secrets.EDGIO_DEPLOY_TOKEN}}

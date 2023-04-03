@@ -1,20 +1,20 @@
-# Build Your Own LinkTree With Storyblok, Astro, and Edgio
+# Build Your Own Link Hub With Storyblok, Astro, and Edgio
 
 Guide: https://www.storyblok.com/tp/slug
 
 ## Demo
 
-https://rishi-raj-jain-linktree-storyblok-astro-edgio-starter-default.layer0-limelight.link/me/rishi-raj-jain
+https://rishi-raj-jain-link-hub-storyblok-astro-edgio-starter-default.layer0-limelight.link/me/rishi-raj-jain
 
 ## Try It Now
 
-[![Deploy with Edgio](https://docs.edg.io/button.svg)](https://app.layer0.co/deploy?repo=https://github.com/rishi-raj-jain/linktree-storyblok-astro-edgio-starter)
+[![Deploy with Edgio](https://docs.edg.io/button.svg)](https://app.layer0.co/deploy?repo=https://github.com/rishi-raj-jain/link-hub-storyblok-astro-edgio-starter)
 
 ## Getting Started
 
 ### Clone This Repo
 
-Use `git clone https://github.com/rishi-raj-jain/linktree-storyblok-astro-edgio-starter.git` to get the files within this repository onto your local machine.
+Use `git clone https://github.com/rishi-raj-jain/link-hub-storyblok-astro-edgio-starter.git` to get the files within this repository onto your local machine.
 
 ### Install dependencies
 

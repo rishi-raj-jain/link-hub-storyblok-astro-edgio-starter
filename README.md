@@ -1,6 +1,6 @@
 # Build Your Own Link Hub With Storyblok, Astro, and Edgio
 
-Guide: https://www.storyblok.com/tp/slug
+Guide: [https://www.storyblok.com/tp/slug](https://www.storyblok.com/tp/link-hub-with-storyblok-astro-edgio)
 
 ## Demo
 
